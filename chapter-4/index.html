@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Pure React Samples</title>
+</head>
+
+<body>
+
+    <!-- Target container -->
+    <div id="react-container"></div>
+
+    <!-- React library & ReactDOM-->
+    <script src="https://unpkg.com/react@15.4.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.4.2/dist/react-dom.js"></script>
+
+    <script>
+        const items = [
+            "1 lb Salmon",
+            "1 cup Pine Nuts",
+            "2 cups Butter Lettuce",
+            "1 Yellow Squash",
+            "1/2 cup Olive Oil",
+            "3 cloves of Garlic"
+        ];
+
+        // const IngredientsList = React.createClass({
+        //     displayName: "IngredientsList",
+        //     render() {
+        //         return React.createElement("ul", { className: "ingredients" },
+        //             this.props.items.map((ingredient, i) => React.createElement("li", { key: i },
+        //                 ingredient))
+        //         );
+        //     }
+        // });
+
+        // ReactDOM.render(
+        //     React.createElement(IngredientsList, { items }, null),
+        //     document.getElementById('react-container')
+        // );
+
+        //  We can create a method that renders a single list item 
+        //  and use that to build out the list
+        // const IngredientsList = React.createClass({
+        //     displayName: "IngredientsList",
+        //     renderListItem(ingredient, i) {
+        //         return React.createElement("li", { key: i },
+        //             ingredient);
+        //     },
+        //     render() {
+        //         return React.createElement(
+        //             "ul", { className: "ingredients" },
+        //             this.props.items.map(this.renderListItem)
+        //         );
+        //     }
+        // });
+
+        //  Create the ingredient list using ES6 Classes
+
+        // class IngredientsList extends React.Component {
+        //     renderListItem(ingredient, i) {
+        //         return React.createElement("li", { key: i },
+        //             ingredient)
+        //     };
+
+        //     render() {
+        //         return React.createElement("ul", { className: "ingredients" },
+        //             this.props.item.map(this.renderListItem));
+        //     }
+        // }
+
+        //  Creating a stateless functional component
+
+        const IngredientList = props =>
+            React.createElement("ul", { className: "ingredients" },
+                props.items.map((ingredient, i) =>
+                    React.createElement("li", { key: i },
+                        ingredient)
+                )
+            );
+
+    </script>
+
+</body>
+
+</html>
